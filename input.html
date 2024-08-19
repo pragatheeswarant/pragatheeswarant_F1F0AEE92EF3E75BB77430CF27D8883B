@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--here used HTML 5 default -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dynamic webpage</title>
+    <!--LINK THE CSS FILE IN THE HTML FILE-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+   <div class="pic"> <img src="logo.jpeg"> </div>
+
+    <div class="navbar"> <div class="icon"><h2 class="logo">CoreTopia</h2></div> </div>
+
+
+
+
+    <form id="form" onsubmit="return display()"  action="insert.php" method="post" >
+        <div class="head"><h2>Fill the form</h2></div>
+      
+        <!-- Input for name -->
+        <div class="inputname">
+          <label for="name">Name :</label>
+          <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+"/>
+        </div>
+      
+        <!-- Input for date of birth -->
+        <div class="setdob">
+          <label for="dob">Date Of Birth :</label>
+          <input type="date" id="dob" name="dob" required min="1900-01-01" max="2024-08-05" />
+        </div>
+      
+        <!-- Textarea for address -->
+        <div class="addres">
+          <label for="address">Address :</label><br />
+          <textarea id="address" name="address"  required ></textarea>
+        </div>
+
+      
+        <!-- Submit button -->
+        
+        <button id="save" type="submit" >Save</button>
+      </form>
+      
+
+    <!-- create table for display the entered values -->
+    <table id="display" style="width: 55%">
+        <tr id="select">
+          
+          <th>Name <span class="iconarrow" id="namearrow" onclick="sorting('name')">&uparrow;</span></th>
+          <th>Date of Birth <span class="iconarrow" id="datearrow" onclick="sorting('date')">&uparrow;</span></th>
+          <th>Address <span class="iconarrow" id="addressarrow" onclick="sorting('address')">&uparrow;</span></th>
+          <th>Age <span class="iconarrow" id="agearrow" onclick="sorting('age')">&uparrow;</span></th>
+          
+    <button id="erase" onclick="showalert() ">Delete</button>
+
+    <!-- this section is used to help the confirmation delete dialog in css -->
+    <div class="delete_1" >
+      <div class="delete_2">
+        <p>are you sure you want to delete this data?</p>
+    </div>
+     <div class="actions">
+   <button class="yes"  onclick="deleted()">yes,delete</button>
+   <button class="cancel" onclick="document.querySelector ('.delete_1').style.display= 'none'">no,cancel</button> 
+     </div>
+    </div>
+
+
+
+
+        <tbody id="add"></tbody>
+      </table>
+   
+    <!--LINK THE JAVASCRIPT FILE -->
+    <script src="javascript.js"></script>
+  </body>
+</html>
